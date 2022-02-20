@@ -81,6 +81,67 @@ public class LinkedList {
 	public boolean isEmpty() {
 		return this.size==0;
 	}
+	private void swap(Node i,Node j) {
+		int temp=i.data;
+		i.data=j.data;
+		j.data=temp;
+	}
+	public void reverseDI() {
+		int l=0;
+		int r=this.size-1;
+		while(l<r) {
+			Node lnode=getNode(l);
+			Node rnode=getNode(r);
+			swap(lnode,rnode);
+			l++;
+			r--;
+		}
+	}
+	
+//	**********Three Pointer Method**********
+	public void reversePI() {
+		Node p=null,c=this.head,n;
+		while(c!=null) {
+			n=c.next;
+			c.next=p;
+			p=c;
+			c=n;
+		}
+		swapHeadTail();
+	}
+	
+	public void reversePR() {
+		reversePR(this.head);
+		swapHeadTail();
+		this.tail.next=null;
+	}
+	
+	private void reversePR(Node n) {
+		if(n==tail) return;
+		
+		reversePR(n.next);
+		n.next.next=n;
+	}
+	
+	private Node left; //only used for printing reverseData Recursively
+	public void reverseDR() {
+		left=this.head;
+		reverseDR(this.head,0);
+	}
+	private void reverseDR(Node right,int ri) {
+		if(right==null) return;
+		reverseDR(right.next,ri+1);
+		if(ri>=(this.size)/2) {
+			swap(left, right);
+			left=left.next;
+		}
+	}
+	
+	private void swapHeadTail() {
+		Node temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+	}
 	
 	public void display() {
 		Node temp=this.head;
