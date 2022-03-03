@@ -66,13 +66,6 @@ public class QueueUsingArray {
 		q.enqueue(40);
 		q.enqueue(50);
 		System.out.println("Item deleted "+q.dequeue());
-		q.enqueue(65);
-		q.enqueue(22);
-		q.dequeue();
-		q.dequeue();
-		q.dequeue();
-		q.dequeue();
-		q.dequeue();
 		q.display();
 		System.out.println("Item at peek "+q.peek());
 	}
