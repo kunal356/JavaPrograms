@@ -31,6 +31,7 @@ public class StackUsing2QueuePopEfficient {
 	}
 	
 	public int peek() {
+		if(main.size()==0) return -1;
 		return main.peek();	
 	}
 	
