@@ -26,22 +26,25 @@ class Main{
         return root;
 
     }
-
+    
+//     preorder using recursion
     public static void preorder(Node root){
         if(root==null) return;
         System.out.print(root.data+" ");
         preorder(root.left);
         preorder(root.right);
     }
-
+    
+//     postorder using recursion
     public static void postorder(Node root){
         if(root==null) return;
         
-        preorder(root.left);
-        preorder(root.right);
+        postorder(root.left);
+        postorder(root.right);
         System.out.print(root.data+" ");
     }
 
+//     inorder using recursion
     public static void inorder(Node root){
         if(root==null) return;
         
