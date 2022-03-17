@@ -92,6 +92,72 @@ class Main{
         
     }
 //postOrder Iterative remaining
+    
+//    level order traversal
+    public static void levelOrderIn1Line(Node root) {
+    	Queue<Node> q = new LinkedList<>();
+    	q.add(root);
+    	
+    	while(!q.isEmpty()) {
+    		Node node = q.remove();
+    		
+    		System.out.print(node.data+" ");
+    		if(node.left != null) {
+    			q.add(node.left);
+    		}
+    		if(node.right !=null) {
+    			q.add(node.right);
+    		}
+    		
+    		
+    		
+    	}
+    }
+    
+    public static void levelOrder(Node root) {
+    	Queue<Node> q = new LinkedList<>();
+    	q.add(root);
+    	q.add(null);
+    	while(!q.isEmpty()) {
+    		Node node = q.remove();
+    		if(node==null) {
+    			System.out.println();
+    			if(!q.isEmpty())q.add(null);
+    			continue;
+    		}
+    		System.out.print(node.data+" ");
+    		if(node.left != null) {
+    			q.add(node.left);
+    		}
+    		if(node.right !=null) {
+    			q.add(node.right);
+    		}
+    		
+    		
+    		
+    	}
+    }
+    
+//    Height of tree 
+    public static int getHeight(Node root) {
+    	if(root == null) return 0;
+    	int leftHeight = getHeight(root.left);
+    	int rightHeight = getHeight(root.right);
+    	return Math.max(leftHeight, rightHeight)+1;
+    }
+    
+//    count of Leaf Nodes
+    public static int countLeafNodes(Node root) {
+    	if(root == null) {
+    		return 0;
+    	}
+    	if(root.left==null && root.right==null) {
+    		return 1;
+    	}
+    	int leftLeafNodes = countLeafNodes(root.left);
+    	int rightLeafNodes = countLeafNodes(root.right);
+    	return leftLeafNodes+rightLeafNodes;
+    }
 
 
 
